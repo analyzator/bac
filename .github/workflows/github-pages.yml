@@ -20,4 +20,4 @@ jobs:
           git config --global user.name 'vrudenko'
           git config --global user.email 'vladyslav.rudenko.vr@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}    
-          npm run deploy
+          npm run deploy --force
