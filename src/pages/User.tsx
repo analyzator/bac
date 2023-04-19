@@ -127,7 +127,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
 
             <input
               name="weight"
-              placeholder="FOF (kg)"
+              placeholder=" (kg)"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.weight}
@@ -147,7 +147,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
             </h4>
             <input
               name="height"
-              placeholder="pikkus (cm)"
+              placeholder=" (cm)"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.height}
@@ -168,7 +168,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
             </h4>
             <input
               name="age"
-              placeholder="vanus (aastat)"
+              placeholder=" (aastat)"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.age}

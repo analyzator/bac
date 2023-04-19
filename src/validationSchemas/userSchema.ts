@@ -5,10 +5,10 @@ export const userSchema = Yup.object({
     .max(320, "Zadajte svoju hmotnosť v kilogramoch")
     .required("Toto pole je povinné"),
   height: Yup.number()
-    .max(235, "Sisesta oma pikkus sentimeetrites")
+    .max(235, "Toto pole je povinné")
     .required("Toto pole je povinné"),
   age: Yup.number()
-    .max(120, "Sisesta oma vanus aastates")
+    .max(120, "Toto pole je povinné")
     .required("Toto pole je povinné"),
   sex: Yup.string()
     .min(4, "Toto pole je povinné")
