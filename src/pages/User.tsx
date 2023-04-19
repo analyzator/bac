@@ -127,7 +127,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
 
             <input
               name="weight"
-              placeholder="kaal (kg)"
+              placeholder="FOF (kg)"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.weight}
