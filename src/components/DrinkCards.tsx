@@ -40,7 +40,7 @@ export const DrinkCards: React.FC<DrinkCardsProps> = ({
           <h3>
             <b>{drink.timePassed}</b>{" "}
             {drink.timePassed === "1" ? "Hodina" : "Hodin"}
-            {window.screen.width < 680 ? "" : null}
+            {window.screen.width < 680 ? " " : null}
           </h3>
         </div>
         <CgMathPlus
