@@ -125,8 +125,7 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
       <div className="bac__info-container">
         <div className="bac__main-text">
           <h2>
-            Obsah alkoholu v krvi je{" "}
-            <b>{Number(currentBac).toFixed(2)} promile</b>
+            Obsah alkoholu v krvi je <b>{Number(currentBac).toFixed(2)} ‰</b>
           </h2>
           <h5>
             To znamená, že v 1000 mililitroch krvi, ktorá cirkuluje vo vašom
