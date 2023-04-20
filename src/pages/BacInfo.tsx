@@ -114,7 +114,7 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
       <div className="Logo bac__logo" onClick={goHome}>
         <h1>Alkoholový analyzátor</h1>
       </div>
-      <div className="bac__buttons">
+      <div className="bac__buttons" style={{ fontFamily: "none" }}>
         <h2 onClick={editUser} className="bac__edit-user-button">
           Upraviť používateľa
         </h2>
