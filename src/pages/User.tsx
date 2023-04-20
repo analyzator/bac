@@ -65,7 +65,11 @@ export const User: React.FC<UserProps> = ({ history }) => {
             <h1>Alkoholový analyzátor</h1>
           </div>
           <form className="userform__form-container">
-            <div className="Logo userform__logo-mobile" onClick={goHome}>
+            <div
+              className="Logo userform__logo-mobile"
+              onClick={goHome}
+              style={{ textAlign: "center" }}
+            >
               <h1>Alkoholový analyzátor</h1>
             </div>
             <div className="userform__title-container userform__g1">
@@ -237,7 +241,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
               className="full-element userform__button userform__g13"
               disabled={!isValid || "" in values ? true : false}
             >
-              Vložiť
+              Uložiť
             </button>
           </form>
         </div>

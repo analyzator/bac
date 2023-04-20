@@ -104,7 +104,7 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
             textAlign: "center",
           }}
         >
-          Ak vyberiete "Vložiť", vybrané nápoje sa uložia a budete presmerovaní
+          Ak vyberiete "Uložiť ", vybrané nápoje sa uložia a budete presmerovaní
           na stránku výpočtu hladiny alkoholu v krvi.
         </p> */}
         <div style={{ display: "flex" }}>
@@ -121,7 +121,7 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
             }}
             className="drinks__main-btn drinks__submit-btn"
           >
-            Vložiť
+            Uložiť
           </button>
         </div>
       </div>

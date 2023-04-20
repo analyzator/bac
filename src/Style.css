@@ -1853,6 +1853,7 @@ input[type="radio"]:checked + label:before {
 
 @media only screen and (max-width: 680px) {
   .bac__container {
+    text-align: center;
     width: 100vw;
     border-top: 0.275rem solid var(--primary-color);
     position: absolute;
