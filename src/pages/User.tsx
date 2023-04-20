@@ -172,7 +172,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
             </h4>
             <input
               name="age"
-              placeholder=" (aastat)"
+              placeholder=" (vek)"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.age}
