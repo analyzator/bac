@@ -140,10 +140,10 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
             <h2>Pravdepodobne ste už triezvy</h2>
           ) : (
             <h2>
-              Budete triezvy o{" "}
+              Po{" "}
               <b>
-                {soberingTime(graphBacData, soberingIdx, eliminationRate)}{" "}
-                hodiny po skončení pitia.
+                {soberingTime(graphBacData, soberingIdx, eliminationRate)} hod.
+                od zápisu údajov bude hladina alkoholu v krvi nulová.
               </b>
             </h2>
           )}
