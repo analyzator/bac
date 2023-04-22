@@ -7,6 +7,10 @@ import { NewDrink } from "../components/NewDrink";
 import { graphDataCalculator } from "../utils/graphDataCalculator";
 import { drinkSorter } from "../utils/drinkSorter";
 import { userParameters } from "../utils/userParameters";
+// import { InfoModal } from "../components/InfoModal";
+import { IconButton } from "@mui/material";
+import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
+import { Modal } from "../components/Modal";
 
 interface DrinksProps extends RouteComponentProps<{ id: string }> {}
 
@@ -15,9 +19,10 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
   const [duplicateDrink, setDuplicateDrink] =
     useState<duplicateDrinkType | null>(null);
   const [addingNewDrink, setAddingNewDrink] = useState(false);
-
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const { widmarkFactor, absorptionRate, eliminationRate, weight } =
     userParameters(match.params.id);
+  const [modal, setModal] = useState(false);
 
   const calculateBAC = () => {
     const { graphBacData, currentBac, curBacIdx } = graphDataCalculator({
@@ -72,6 +77,18 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
     history.push("/");
   };
 
+  const handleOpenModal = () => {
+    setModal(true);
+  };
+
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(true);
+  // };
+
+  // const handleCloseModal = () => {
+  //   setIsModalOpen(false);
+  // };
+
   return (
     <div className="container drinks__container">
       <div className="Logo drinks__logo" onClick={goHome}>
@@ -83,30 +100,19 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
       >
         Zmena používateľa
       </h2>
-      <div
-        className="drinks__main-btns"
-        style={{ display: "grid", justifyItems: "center" }}
-      >
-        {/* <p
-          style={{
-            fontFamily: "b612, sans-serif",
-            width: 500,
-            textAlign: "center",
-          }}
-        >
-          Pri výbere položky "Pridanie nápoja" uveďte druh nápoja, ktorý ste
-          vypili, objem, silu v % a ako dávno ste ho pili.
-        </p> */}
-        {/* <p
-          style={{
-            fontFamily: "b612, sans-serif",
-            width: 500,
-            textAlign: "center",
-          }}
-        >
-          Ak vyberiete "Uložiť ", vybrané nápoje sa uložia a budete presmerovaní
-          na stránku výpočtu hladiny alkoholu v krvi.
-        </p> */}
+      <div className="drinks__main-btns" style={{ display: "grid" }}>
+        <IconButton onClick={handleOpenModal}>
+          <InfoTwoToneIcon fontSize="large" />
+        </IconButton>
+        {modal && (
+          <Modal
+            title="Pomôcka"
+            content="Je to hypotéza, informácia ktorá by sa nemala používať na
+                rozhodnútie kedy sadnúť za volant!"
+            btnText="Close"
+            setModal={setModal}
+          />
+        )}
         <div style={{ display: "flex" }}>
           <button
             onClick={() => setAddingNewDrink(true)}
@@ -121,7 +127,7 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
             }}
             className="drinks__main-btn drinks__submit-btn"
           >
-            Uložiť
+            Pokračovať
           </button>
         </div>
       </div>

@@ -44,12 +44,12 @@ export const DrinkCards: React.FC<DrinkCardsProps> = ({
           </h3>
         </div>
         <CgMathPlus
-          className="drinkcard__del-icon drinkcard__action-icon"
-          onClick={() => deleteDrink(i)}
-        />
-        <CgMathPlus
           className="drinkcard__plus-icon drinkcard__action-icon"
           onClick={() => addDuplicateDrink(drink)}
+        />
+        <CgMathPlus
+          className="drinkcard__del-icon drinkcard__action-icon"
+          onClick={() => deleteDrink(i)}
         />
       </div>
     );

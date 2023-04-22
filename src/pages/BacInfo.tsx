@@ -160,7 +160,15 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
           />
         </div>
       </div>
-      {modal && <Modal setModal={setModal} />}
+      {modal && (
+        <Modal
+          title="Pozor!"
+          content="Je to hypotéza, informácia ktorá by sa nemala používať na
+                rozhodnútie kedy sadnúť za volant!"
+          btnText="Oloz"
+          setModal={setModal}
+        />
+      )}
     </div>
   );
 };

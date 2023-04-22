@@ -1,6 +1,6 @@
 :root {
   /* --primary-color: #dc3806; */
-  --primary-color: #50a028;
+  --primary-color: #7ca982;
   --primary-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
     0 15px 40px rgba(166, 173, 201, 0.2);
   --primary-text-color: #3f4649;
@@ -30,6 +30,16 @@
   padding: 0;
   margin: 0;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.Logo > h2 {
+  font-family: var(--font-family);
+  font-weight: 400;
+  color: var(--primary-color);
+  padding: 0;
+  margin: 0;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 2rem;
 }
 
 /* ------- general -------*/
@@ -1041,16 +1051,27 @@ input[type="radio"]:checked + label:before {
 }
 
 .drinkcard__plus-icon {
-  grid-row: 1 / 2;
   grid-column: 4 / 5;
+  grid-row: 3 / 4;
 }
 
 .drinkcard__del-icon {
   transform: rotate(45deg);
-  grid-row: 3 / 4;
+  grid-row: 1 / 2;
+  color: #dc3806;
 }
 
 .drinkcard__action-icon {
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-self: end;
+  align-self: center;
+  color: #6f7780;
+  transition-duration: 0.4s;
+}
+
+.drinkcard__action-del-icon {
   cursor: pointer;
   width: 2.5rem;
   height: 2.5rem;

@@ -1,10 +1,18 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface Props {
   setModal: React.Dispatch<React.SetStateAction<any>>;
+  content: ReactNode;
+  btnText: string;
+  title: any;
 }
 
-export const Modal: React.FC<Props> = ({ setModal }) => {
+export const Modal: React.FC<Props> = ({
+  setModal,
+  content,
+  title,
+  btnText,
+}) => {
   return (
     <div>
       <div className="bac__modal">
@@ -13,16 +21,13 @@ export const Modal: React.FC<Props> = ({ setModal }) => {
           onClick={() => setModal(false)}
         ></div>
         <div className="bac__modal-content">
-          <h2 className="bac__modal-content-title"> Pozor!</h2>
-          <h3 className="bac__modal-content-body">
-            Je to hypotéza, informácia ktorá by sa nemala používať na
-            rozhodnútie kedy sadnúť za volant!
-          </h3>
+          <h2 className="bac__modal-content-title"> {title}</h2>
+          <h3 className="bac__modal-content-body">{content}</h3>
           <button
             className="bac__modal-content-btn"
             onClick={() => setModal(false)}
           >
-            Uložiť
+            {btnText}
           </button>
         </div>
       </div>

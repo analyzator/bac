@@ -1,9 +1,9 @@
-import React from "react"
-import { Formik } from "formik"
-import { drinkSchema } from "../validationSchemas/drinkSchema"
-import { duplicateDrinkType } from "../types"
-import { typeInitalValues } from "../utils/typeInitalValues"
-import { CgMathPlus } from "react-icons/cg"
+import React from "react";
+import { Formik } from "formik";
+import { drinkSchema } from "../validationSchemas/drinkSchema";
+import { duplicateDrinkType } from "../types";
+import { typeInitalValues } from "../utils/typeInitalValues";
+import { CgMathPlus } from "react-icons/cg";
 
 interface Props {
   closeForm: (
@@ -12,10 +12,10 @@ interface Props {
     unit: string,
     abv: string,
     timePassed: string
-  ) => void
-  duplicateDrinkData: duplicateDrinkType | null
-  addingNewDrink: boolean
-  cancelAdding: () => void
+  ) => void;
+  duplicateDrinkData: duplicateDrinkType | null;
+  addingNewDrink: boolean;
+  cancelAdding: () => void;
 }
 
 export const NewDrink: React.FC<Props> = ({
@@ -41,7 +41,7 @@ export const NewDrink: React.FC<Props> = ({
             values.unit,
             values.abv,
             values.timePassed
-          )
+          );
         }}
         validationSchema={drinkSchema}
       >
@@ -155,7 +155,7 @@ export const NewDrink: React.FC<Props> = ({
               </div>
             </div>
             <CgMathPlus
-              className="drinkcard__del-icon drinkcard__action-icon newdrink__del-icon"
+              className="drinkcard__del-icon drinkcard__action-del-icon newdrink__del-icon"
               onClick={() => cancelAdding()}
             />
             <CgMathPlus
@@ -170,7 +170,12 @@ export const NewDrink: React.FC<Props> = ({
               className="drinkcard__plus-icon drinkcard__action-icon newdrink__plus-icon"
               onClick={() => handleSubmit()}
             />
-            <button className="newdrink__mobile-del-button">Odstrániť</button>
+            <button
+              className="newdrink__mobile-del-button"
+              onClick={() => cancelAdding()}
+            >
+              Odstrániť
+            </button>
             <button
               className="newdrink__mobile-plus-button"
               onClick={() => handleSubmit()}
@@ -181,5 +186,5 @@ export const NewDrink: React.FC<Props> = ({
         )}
       </Formik>
     </div>
-  )
-}
+  );
+};
