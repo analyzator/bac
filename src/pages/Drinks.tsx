@@ -89,62 +89,76 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
   //   setIsModalOpen(false);
   // };
 
+  const textik = (
+    <div>
+      Aplikácia umožňuje používateľovi vybrať nápoj z poskytnutého zoznamu a
+      určiť jeho obsah alkoholu a objem. V hornej časti obrazovky môže
+      používateľ vybrať typ nápoja (napr. víno, pivo, vodka, tequila atď.) a
+      následne sa zobrazí vybraný nápoj. Po výbere typu nápoja sa otvorí
+      rozbaľovacia ponuka so zoznamom rôznych typov nápojov. Používateľ si môže
+      vybrať požadovaný typ a potom zadať počet vypitých nápojov (v mililitroch)
+      alebo počet štandardných vypitých nápojov.
+    </div>
+  );
+
   return (
-    <div className="container drinks__container">
-      <div className="Logo drinks__logo" onClick={goHome}>
-        <h1 style={{ textAlign: "center" }}>Alkoholový analyzátor</h1>
-      </div>
-      <h2
-        onClick={() => history.push("/user")}
-        className="drinks__edit-user-btn"
-      >
-        Zmena používateľa
-      </h2>
-      <div className="drinks__main-btns" style={{ display: "grid" }}>
-        <IconButton onClick={handleOpenModal}>
-          <InfoTwoToneIcon fontSize="large" />
-        </IconButton>
-        {modal && (
-          <Modal
-            title="Pomôcka"
-            content="Je to hypotéza, informácia ktorá by sa nemala používať na
-                rozhodnútie kedy sadnúť za volant!"
-            btnText="Close"
-            setModal={setModal}
+    <>
+      <div className="container drinks__container">
+        <div className="Logo drinks__logo" onClick={goHome}>
+          <h1 style={{ textAlign: "center" }}>Alkoholový analyzátor</h1>
+        </div>
+        <h2
+          onClick={() => history.push("/user")}
+          className="drinks__edit-user-btn"
+        >
+          Zmena používateľa
+        </h2>
+        <div className="drinks__main-btns" style={{ display: "grid" }}>
+          <IconButton onClick={handleOpenModal}>
+            <InfoTwoToneIcon fontSize="large" />
+          </IconButton>
+
+          <div style={{ display: "flex" }}>
+            <button
+              onClick={() => setAddingNewDrink(true)}
+              className="drinks__main-btn drinks__add-btn"
+            >
+              Pridanie nápoja
+            </button>
+            <button
+              disabled={drinks.length === 0 ? true : false}
+              onClick={() => {
+                calculateBAC();
+              }}
+              className="drinks__main-btn drinks__submit-btn"
+            >
+              Pokračovať
+            </button>
+          </div>
+        </div>
+
+        <div className="drinks__drink-card-container">
+          <NewDrink
+            closeForm={closeForm}
+            duplicateDrinkData={duplicateDrink}
+            addingNewDrink={addingNewDrink}
+            cancelAdding={cancelAdding}
           />
-        )}
-        <div style={{ display: "flex" }}>
-          <button
-            onClick={() => setAddingNewDrink(true)}
-            className="drinks__main-btn drinks__add-btn"
-          >
-            Pridanie nápoja
-          </button>
-          <button
-            disabled={drinks.length === 0 ? true : false}
-            onClick={() => {
-              calculateBAC();
-            }}
-            className="drinks__main-btn drinks__submit-btn"
-          >
-            Pokračovať
-          </button>
+          <DrinkCards
+            drinks={drinks}
+            deleteDrink={deleteDrink}
+            addDuplicateDrink={addDuplicateDrink}
+          />{" "}
         </div>
       </div>
-
-      <div className="drinks__drink-card-container">
-        <NewDrink
-          closeForm={closeForm}
-          duplicateDrinkData={duplicateDrink}
-          addingNewDrink={addingNewDrink}
-          cancelAdding={cancelAdding}
+      {modal && (
+        <Modal
+          title="Pomôcka"
+          content={textik}
+          btnText="Close"
+          setModal={setModal}
         />
-        <DrinkCards
-          drinks={drinks}
-          deleteDrink={deleteDrink}
-          addDuplicateDrink={addDuplicateDrink}
-        />{" "}
-      </div>
-    </div>
+      )}
+    </>
   );
 };

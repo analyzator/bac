@@ -1,8 +1,9 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 interface Props {
   setModal: React.Dispatch<React.SetStateAction<any>>;
-  content: ReactNode;
+  // content: ReactNode;
+  content: any;
   btnText: string;
   title: any;
 }

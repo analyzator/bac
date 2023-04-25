@@ -1051,27 +1051,20 @@ input[type="radio"]:checked + label:before {
 }
 
 .drinkcard__plus-icon {
+  grid-row: 1 / 2;
   grid-column: 4 / 5;
-  grid-row: 3 / 4;
 }
 
 .drinkcard__del-icon {
   transform: rotate(45deg);
-  grid-row: 1 / 2;
-  color: #dc3806;
+  grid-row: 3 / 4;
+}
+
+.drinkcard__del-mui-icon {
+  grid-row: 3 / 4;
 }
 
 .drinkcard__action-icon {
-  cursor: pointer;
-  width: 2.5rem;
-  height: 2.5rem;
-  justify-self: end;
-  align-self: center;
-  color: #6f7780;
-  transition-duration: 0.4s;
-}
-
-.drinkcard__action-del-icon {
   cursor: pointer;
   width: 2.5rem;
   height: 2.5rem;
@@ -1805,6 +1798,7 @@ input[type="radio"]:checked + label:before {
   right: 0;
   bottom: 0;
   position: fixed;
+  overflow: auto;
 }
 
 .bac__modal-overlay {

@@ -1,7 +1,10 @@
 import React from "react";
 import { drinkType } from "../types";
-import { CgMathPlus } from "react-icons/cg";
+// import { CgMathPlus } from "react-icons/cg";
 import { DrinkTitle } from "./DrinkTitle";
+import { Tooltip } from "@mui/material";
+import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 interface DrinkCardsProps {
   deleteDrink: (i: number) => void;
@@ -43,14 +46,44 @@ export const DrinkCards: React.FC<DrinkCardsProps> = ({
             {window.screen.width < 680 ? " " : null}
           </h3>
         </div>
-        <CgMathPlus
+        {/* <CgMathPlus
           className="drinkcard__plus-icon drinkcard__action-icon"
           onClick={() => addDuplicateDrink(drink)}
-        />
-        <CgMathPlus
+        /> */}
+        {/* <CgMathPlus
           className="drinkcard__del-icon drinkcard__action-icon"
           onClick={() => deleteDrink(i)}
-        />
+        /> */}
+        {/* <Button
+          style={{ background: "red" }}
+          variant="contained"
+          onClick={() => addDuplicateDrink(drink)}
+        >
+          Addko
+        </Button>
+        <Button variant="contained" onClick={() => deleteDrink(i)}>
+          delka
+        </Button> */}
+        <Tooltip title="Vymazať">
+          <BackspaceOutlinedIcon
+            className="drinkcard__plus-icon drinkcard__action-icon"
+            style={{
+              color: "#C6685D",
+            }}
+            onClick={() => deleteDrink(i)}
+            fontSize="medium"
+          />
+        </Tooltip>
+        <Tooltip title="Kopírovať">
+          <ContentCopyIcon
+            className="drinkcard__del-mui-icon drinkcard__action-icon"
+            style={{
+              color: "#7CA982",
+            }}
+            onClick={() => addDuplicateDrink(drink)}
+            fontSize="medium"
+          />
+        </Tooltip>
       </div>
     );
   });

@@ -165,7 +165,7 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
           title="Pozor!"
           content="Je to hypotéza, informácia ktorá by sa nemala používať na
                 rozhodnútie kedy sadnúť za volant!"
-          btnText="Oloz"
+          btnText="Chápem"
           setModal={setModal}
         />
       )}

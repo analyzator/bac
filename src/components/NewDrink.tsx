@@ -3,7 +3,10 @@ import { Formik } from "formik";
 import { drinkSchema } from "../validationSchemas/drinkSchema";
 import { duplicateDrinkType } from "../types";
 import { typeInitalValues } from "../utils/typeInitalValues";
-import { CgMathPlus } from "react-icons/cg";
+// import { CgMathPlus } from "react-icons/cg";
+import { Button } from "@mui/material";
+import SaveIcon from "@mui/icons-material/Save";
+import BackspaceIcon from "@mui/icons-material/Backspace";
 
 interface Props {
   closeForm: (
@@ -137,7 +140,7 @@ export const NewDrink: React.FC<Props> = ({
                 }}
               >
                 {" "}
-                Pred koľkými hodinami?{" "}
+                Dávno?{" "}
               </h4>
               <div className="newdrink__parameter-subcontainer">
                 <input
@@ -151,37 +154,49 @@ export const NewDrink: React.FC<Props> = ({
                   inputMode="numeric"
                   className="newdrink__timePassed-input"
                 />
-                <h3>hodiny</h3>
+                <h3>hod.</h3>
               </div>
             </div>
-            <CgMathPlus
-              className="drinkcard__del-icon drinkcard__action-del-icon newdrink__del-icon"
-              onClick={() => cancelAdding()}
-            />
-            <CgMathPlus
-              className="drinkcard__plus-icon drinkcard__action-icon newdrink__plus-icon"
+            <Button
+              className="drinkcard__del-mui-icon newdrink__mobile-plus-button"
               onClick={() => handleSubmit()}
-            />
-            <button
-              className="newdrink__mobile-del-button"
-              onClick={() => cancelAdding()}
-            />
-            <CgMathPlus
-              className="drinkcard__plus-icon drinkcard__action-icon newdrink__plus-icon"
-              onClick={() => handleSubmit()}
-            />
-            <button
-              className="newdrink__mobile-del-button"
-              onClick={() => cancelAdding()}
+              sx={{ borderRadius: 10 }}
+              variant="contained"
+              startIcon={<SaveIcon />}
+              style={{ minWidth: "unset", background: "#7CA982" }}
             >
-              Odstrániť
-            </button>
+              Uložiť
+            </Button>
+            <Button
+              className="drinkcard__plus-icon newdrink__mobile-del-button"
+              onClick={() => cancelAdding()}
+              sx={{ borderRadius: 10 }}
+              variant="contained"
+              startIcon={<BackspaceIcon />}
+              style={{ minWidth: "unset", background: "#C6685D" }}
+            >
+              Vymazať
+            </Button>
+            {/* <CgMathPlus
+              className="drinkcard__plus-icon drinkcard__action-icon newdrink__plus-icon"
+              onClick={() => handleSubmit()}
+            />
+            <CgMathPlus
+              className="drinkcard__del-icon drinkcard__action-icon newdrink__del-icon"
+              onClick={() => cancelAdding()}
+            />
             <button
               className="newdrink__mobile-plus-button"
               onClick={() => handleSubmit()}
             >
               Pridať
-            </button>
+            </button>{" "}
+            <button
+              className="newdrink__mobile-del-button"
+              onClick={() => cancelAdding()}
+            >
+              Odstrániť
+            </button> */}
           </form>
         )}
       </Formik>
