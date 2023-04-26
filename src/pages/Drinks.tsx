@@ -8,9 +8,10 @@ import { graphDataCalculator } from "../utils/graphDataCalculator";
 import { drinkSorter } from "../utils/drinkSorter";
 import { userParameters } from "../utils/userParameters";
 // import { InfoModal } from "../components/InfoModal";
-import { IconButton } from "@mui/material";
-import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
+import { Button, IconButton, Grid } from "@mui/material";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { Modal } from "../components/Modal";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 
 interface DrinksProps extends RouteComponentProps<{ id: string }> {}
 
@@ -73,9 +74,9 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
     setDrinks(temp);
   };
 
-  const goHome = () => {
-    history.push("/");
-  };
+  // const goHome = () => {
+  //   history.push("/");
+  // };
 
   const handleOpenModal = () => {
     setModal(true);
@@ -104,19 +105,41 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
   return (
     <>
       <div className="container drinks__container">
-        <div className="Logo drinks__logo" onClick={goHome}>
+        {/* <div className="Logo drinks__logo" onClick={goHome}>
           <h1 style={{ textAlign: "center" }}>Alkoholový analyzátor</h1>
-        </div>
-        <h2
-          onClick={() => history.push("/user")}
-          className="drinks__edit-user-btn"
-        >
-          Zmena používateľa
-        </h2>
+        </div> */}
+
         <div className="drinks__main-btns" style={{ display: "grid" }}>
-          <IconButton onClick={handleOpenModal}>
-            <InfoTwoToneIcon fontSize="large" />
-          </IconButton>
+          <div className="drinks__USER-BTN">
+            <Grid className="drinks__USER-BTN-SPACE">
+              <Grid item xs={6}>
+                <Button
+                  onClick={() => history.push("/user")}
+                  sx={{ borderRadius: 5 }}
+                  startIcon={<ManageAccountsIcon />}
+                  style={{
+                    width: "max-content",
+                    // background: "#7CA982",
+                    // color: "white",
+                    color: "#7CA982",
+                  }}
+                >
+                  Zmena používateľa
+                </Button>
+              </Grid>
+              <Grid item xs={6}>
+                <IconButton onClick={handleOpenModal}>
+                  <HelpOutlineIcon fontSize="medium" />
+                </IconButton>
+              </Grid>
+            </Grid>
+          </div>
+          {/* <div
+            onClick={() => history.push("/user")}
+            className="drinks__edit-user-btn"
+          >
+            Zmena používateľa
+          </div> */}
 
           <div style={{ display: "flex" }}>
             <button

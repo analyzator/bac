@@ -167,6 +167,7 @@ export const NewDrink: React.FC<Props> = ({
             >
               Uložiť
             </Button>
+            {/* {window.screen.width < 680 ? " " : null} */}
             <Button
               className="drinkcard__plus-icon newdrink__mobile-del-button"
               onClick={() => cancelAdding()}

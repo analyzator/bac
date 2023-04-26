@@ -613,7 +613,7 @@ input[type="radio"]:checked + label:before {
     background-color: white;
     height: 0.48125rem;
     width: 0.48125rem;
-    border: 0.34375rem solid #dc3806;
+    border: 0.34375rem solid #7ca982;
     border-radius: 50%;
     margin-right: 0.66rem;
   }
@@ -867,7 +867,7 @@ input[type="radio"]:checked + label:before {
     background-color: white;
     height: 0.48125rem;
     width: 0.48125rem;
-    border: 0.34375rem solid #dc3806;
+    border: 0.34375rem solid #7ca982;
     border-radius: 50%;
     margin-right: 0.66rem;
   }
@@ -995,8 +995,20 @@ input[type="radio"]:checked + label:before {
   cursor: pointer;
 }
 
+.drinks__USER-BTN {
+  /* display: flex; */
+  justify-content: center;
+}
+
+.drinks__USER-BTN-SPACE {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
 .drinks__edit-user-btn:hover {
-  color: #e35d34;
+  color: #243e36;
 }
 
 .drinks__main-btns {
@@ -1423,7 +1435,7 @@ input[type="radio"]:checked + label:before {
   }
 
   .drinks__edit-user-btn {
-    display: none;
+    display: flex;
   }
 
   .drinkcard__container {
@@ -1485,7 +1497,7 @@ input[type="radio"]:checked + label:before {
   .drinks__main-btns {
     width: 85vw;
     display: flex;
-    margin: 9rem 0rem 1rem;
+    margin: 0rem 0rem 1rem;
   }
 
   .drinkcard__title > h2 {
@@ -1980,7 +1992,7 @@ input[type="radio"]:checked + label:before {
   }
 
   .bac__modal-content {
-    top: 35%;
+    top: 10%;
     margin-left: -45vw;
     width: 90vw;
   }

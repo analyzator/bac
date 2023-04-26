@@ -12,9 +12,9 @@ interface UserProps extends RouteComponentProps {}
 export const User: React.FC<UserProps> = ({ history }) => {
   const [userParams, setUserParams] = useLocalStorage("userParams", {});
 
-  const goHome = () => {
-    history.push("/");
-  };
+  // const goHome = () => {
+  //   history.push("/");
+  // };
 
   return (
     <Formik
@@ -61,17 +61,17 @@ export const User: React.FC<UserProps> = ({ history }) => {
         isValid,
       }) => (
         <div className="userform__container container">
-          <div className="Logo userform__logo-web" onClick={goHome}>
+          {/* <div className="Logo userform__logo-web" onClick={goHome}>
             <h1>Alkoholový analyzátor</h1>
-          </div>
+          </div> */}
           <form className="userform__form-container">
-            <div
+            {/* <div
               className="Logo userform__logo-mobile"
               onClick={goHome}
               style={{ textAlign: "center" }}
             >
               <h1>Alkoholový analyzátor</h1>
-            </div>
+            </div> */}
             <div className="userform__title-container userform__g1">
               <h2>Zadajte svoje fyzické charakteristiky</h2>
             </div>
@@ -91,8 +91,8 @@ export const User: React.FC<UserProps> = ({ history }) => {
                 style={{
                   border:
                     values.sex === "male"
-                      ? "1px solid #dc3806"
-                      : "1px solid #818181",
+                      ? "1px solid #7CA982"
+                      : "1px solid #B1B4B6",
                 }}
               >
                 Muž
@@ -112,7 +112,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
                 style={{
                   border:
                     values.sex === "female"
-                      ? "0.5px solid #dc3806"
+                      ? "0.5px solid #7CA982"
                       : "0.5px solid #B1B4B6",
                 }}
               >
