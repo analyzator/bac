@@ -8,6 +8,10 @@ import { ChartOptions } from "chart.js";
 import { soberingTime } from "../utils/soberingTime";
 import { useLocalStorage } from "../utils/useLocalState";
 import { Modal } from "../components/Modal";
+import { Button } from "@mui/material";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import LiquorIcon from "@mui/icons-material/Liquor";
+import HomeIcon from "@mui/icons-material/Home";
 
 interface Props
   extends RouteComponentProps<
@@ -62,7 +66,7 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
     labels: labels,
     datasets: [
       {
-        label: "alkohol v krvi",
+        label: "Promile",
         fill: true,
         lineTension: 0.1,
         backgroundColor: "rgba(75,192,192,0.4)",
@@ -70,12 +74,12 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderWidth: 1,
-        pointHoverRadius: 5,
+        pointHoverRadius: 10,
         pointHoverBackgroundColor: "rgba(75,192,192,1)",
         pointHoverBorderColor: "rgba(220,220,220,1)",
         pointHoverBorderWidth: 2,
         pointRadius: 1,
-        pointHitRadius: 10,
+        pointHitRadius: 2,
         data: graphBacData,
       },
     ],
@@ -99,11 +103,37 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
         },
       ],
     },
-    tooltips: { enabled: true },
+    // tooltips: { enabled: true },
     scales: {
       xAxes: [
         {
           display: true,
+          scaleLabel: {
+            display: true,
+            labelString: "Čas v hodinách",
+          },
+
+          // ticks: {
+          //   callback: function (value: string, index: any, values: any) {
+          //     // Округляем значение до целого числа
+          //     const hour = Math.round(parseFloat(value));
+          //     // Получаем значение времени в нужном формате
+          //     return moment({ hour }).format("HH:mm");
+          //   },
+          //   // Настраиваем значения для оси x от 0 до 24
+          //   // min: 0,
+          //   // max: 50,
+          //   // stepSize: 1,
+          // },
+        },
+      ],
+      yAxes: [
+        {
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: "Úroveň v ‰",
+          },
         },
       ],
     },
@@ -112,16 +142,66 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
   return (
     <div className="container bac__container">
       <div className="Logo bac__logo" onClick={goHome}>
-        <h1>Alkoholový analyzátor</h1>
+        <h1>Alkoholový Analyzátor</h1>
       </div>
-      <div className="bac__buttons" style={{ fontFamily: "none" }}>
+      {/* <div className="bac__buttons">
         <h2 onClick={editUser} className="bac__edit-user-button">
           Upraviť používateľa
         </h2>
         <h2 onClick={editDrinks} className="bac__edit-drinks-button">
           Upraviť nápoje
         </h2>
+      </div> */}
+      <div className="result-buttons">
+        <div className="homepage-button-bac">
+          <Button
+            onClick={goHome}
+            sx={{ borderRadius: 10 }}
+            variant="outlined"
+            startIcon={<HomeIcon />}
+            style={{
+              color: "#7CA982",
+              marginRight: "10rem",
+              borderColor: "#7CA982",
+              borderWidth: "2px",
+              fontWeight: "bold",
+            }}
+          >
+            Domovská stránka
+          </Button>
+        </div>
+
+        <Button
+          onClick={editUser}
+          sx={{ borderRadius: 10 }}
+          variant="outlined"
+          startIcon={<ManageAccountsIcon />}
+          style={{
+            color: "#7CA982",
+            marginRight: "10px",
+            borderColor: "#7CA982",
+            borderWidth: "2px",
+            fontWeight: "bold",
+          }}
+        >
+          Upraviť používateľa
+        </Button>
+        <Button
+          onClick={editDrinks}
+          sx={{ borderRadius: 10 }}
+          variant="outlined"
+          startIcon={<LiquorIcon />}
+          style={{
+            color: "#7CA982",
+            borderColor: "#7CA982",
+            borderWidth: "2px",
+            fontWeight: "bold",
+          }}
+        >
+          Upraviť nápoje
+        </Button>
       </div>
+
       <div className="bac__info-container">
         <div className="bac__main-text">
           <h2>

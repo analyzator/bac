@@ -72,9 +72,18 @@ export const User: React.FC<UserProps> = ({ history }) => {
             >
               <h1>Alkoholový analyzátor</h1>
             </div> */}
-            <div className="userform__title-container userform__g1">
+            {/* <div className="userform__title-container userform__g1">
               <h2>Zadajte svoje fyzické charakteristiky</h2>
-            </div>
+            </div> */}
+            <p
+              style={{
+                fontSize: "larger",
+                gridColumn: "1 / span 2",
+                textAlign: "center",
+              }}
+            >
+              Zadajte svoje fyzické charakteristiky
+            </p>
             <div className="userform__g2 userform__radiobuttons-container">
               <input
                 type="radio"

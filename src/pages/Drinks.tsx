@@ -115,21 +115,23 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
               <Grid item xs={6}>
                 <Button
                   onClick={() => history.push("/user")}
-                  sx={{ borderRadius: 5 }}
+                  sx={{ borderRadius: 10 }}
+                  variant="outlined"
                   startIcon={<ManageAccountsIcon />}
                   style={{
-                    width: "max-content",
-                    // background: "#7CA982",
-                    // color: "white",
                     color: "#7CA982",
+                    marginRight: "10px",
+                    borderColor: "#7CA982",
+                    borderWidth: "2px",
+                    fontWeight: "bold",
                   }}
                 >
-                  Zmena používateľa
+                  Upraviť používateľa
                 </Button>
               </Grid>
               <Grid item xs={6}>
                 <IconButton onClick={handleOpenModal}>
-                  <HelpOutlineIcon fontSize="medium" />
+                  <HelpOutlineIcon fontSize="large" />
                 </IconButton>
               </Grid>
             </Grid>

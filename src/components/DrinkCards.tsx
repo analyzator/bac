@@ -1,6 +1,5 @@
 import React from "react";
 import { drinkType } from "../types";
-// import { CgMathPlus } from "react-icons/cg";
 import { DrinkTitle } from "./DrinkTitle";
 import { Tooltip } from "@mui/material";
 import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
@@ -46,24 +45,6 @@ export const DrinkCards: React.FC<DrinkCardsProps> = ({
             {window.screen.width < 680 ? " " : null}
           </h3>
         </div>
-        {/* <CgMathPlus
-          className="drinkcard__plus-icon drinkcard__action-icon"
-          onClick={() => addDuplicateDrink(drink)}
-        /> */}
-        {/* <CgMathPlus
-          className="drinkcard__del-icon drinkcard__action-icon"
-          onClick={() => deleteDrink(i)}
-        /> */}
-        {/* <Button
-          style={{ background: "red" }}
-          variant="contained"
-          onClick={() => addDuplicateDrink(drink)}
-        >
-          Addko
-        </Button>
-        <Button variant="contained" onClick={() => deleteDrink(i)}>
-          delka
-        </Button> */}
         <Tooltip title="Vymazať">
           <BackspaceOutlinedIcon
             className="drinkcard__plus-icon drinkcard__action-icon"
