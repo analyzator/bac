@@ -6,6 +6,7 @@ import { userParamCalc } from "../utils/userParamCalc";
 import { userSchema } from "../validationSchemas/userSchema";
 // import { Button } from "@mui/material"
 import "../Style.css";
+import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 
 interface UserProps extends RouteComponentProps {}
 
@@ -84,8 +85,53 @@ export const User: React.FC<UserProps> = ({ history }) => {
             >
               Zadajte svoje fyzické charakteristiky
             </p>
+
             <div className="userform__g2 userform__radiobuttons-container">
-              <input
+              <RadioGroup
+                style={{ display: "contents" }}
+                row
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="female"
+                name="radio-buttons-group"
+              >
+                <FormControlLabel
+                  className="userform__radio-label"
+                  name="sex"
+                  value="male"
+                  id="male"
+                  control={<Radio style={{ color: "#243E36" }} />}
+                  label="Muž"
+                  checked={values.sex === "male"}
+                  onChange={() => setFieldValue("sex", "male")}
+                  style={{
+                    marginLeft: 0,
+                    marginRight: 0,
+                    border:
+                      values.sex === "male"
+                        ? "1px solid #7CA982"
+                        : "1px solid #B1B4B6",
+                  }}
+                />
+                <FormControlLabel
+                  className="userform__radio-label"
+                  name="sex"
+                  value="female"
+                  id="female"
+                  control={<Radio style={{ color: "#243E36" }} />}
+                  label="Žena"
+                  checked={values.sex === "female"}
+                  onChange={() => setFieldValue("sex", "female")}
+                  style={{
+                    marginLeft: 0,
+                    marginRight: 0,
+                    border:
+                      values.sex === "male"
+                        ? "1px solid #7CA982"
+                        : "1px solid #B1B4B6",
+                  }}
+                />
+              </RadioGroup>
+              {/* <input
                 type="radio"
                 name="sex"
                 value="male"
@@ -126,7 +172,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
                 }}
               >
                 Žena
-              </label>
+              </label> */}
             </div>
             <hr className="userform__line userform__line1" />
             <h4
