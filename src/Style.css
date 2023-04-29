@@ -1468,7 +1468,8 @@ input[type="radio"]:checked + label:before {
     border-radius: 0;
     background-color: var(--background-color);
     border-top: 0.275rem solid var(--primary-color);
-    overflow-y: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   .drinks__drink-card-container {
