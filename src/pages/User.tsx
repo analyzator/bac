@@ -78,7 +78,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
             </div> */}
             <p
               style={{
-                fontSize: "larger",
+                fontSize: "x-large",
                 gridColumn: "1 / span 2",
                 textAlign: "center",
               }}
@@ -125,7 +125,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
                     marginLeft: 0,
                     marginRight: 0,
                     border:
-                      values.sex === "male"
+                      values.sex === "female"
                         ? "1px solid #7CA982"
                         : "1px solid #B1B4B6",
                   }}
@@ -222,7 +222,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
                 color: errors.age && touched.age ? "#ff0033" : "#3f4649",
               }}
             >
-              Zadajte svoj vek v rokoch
+              Zadajte svoj vek
             </h4>
             <input
               name="age"

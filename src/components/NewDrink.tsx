@@ -179,7 +179,7 @@ export const NewDrink: React.FC<Props> = ({
               startIcon={<BackspaceIcon />}
               style={{ minWidth: "unset", background: "#C6685D" }}
             >
-              Vymazať
+              Zrušiť
             </Button>
             {/* <CgMathPlus
               className="drinkcard__plus-icon drinkcard__action-icon newdrink__plus-icon"

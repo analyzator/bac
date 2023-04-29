@@ -7,11 +7,14 @@ import { NewDrink } from "../components/NewDrink";
 import { graphDataCalculator } from "../utils/graphDataCalculator";
 import { drinkSorter } from "../utils/drinkSorter";
 import { userParameters } from "../utils/userParameters";
-// import { InfoModal } from "../components/InfoModal";
 import { Button, IconButton, Grid } from "@mui/material";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { Modal } from "../components/Modal";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import SaveIcon from "@mui/icons-material/Save";
+import BackspaceIcon from "@mui/icons-material/Backspace";
 
 interface DrinksProps extends RouteComponentProps<{ id: string }> {}
 
@@ -74,38 +77,67 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
     setDrinks(temp);
   };
 
-  // const goHome = () => {
-  //   history.push("/");
-  // };
-
   const handleOpenModal = () => {
     setModal(true);
   };
 
-  // const handleOpenModal = () => {
-  //   setIsModalOpen(true);
-  // };
-
-  // const handleCloseModal = () => {
-  //   setIsModalOpen(false);
-  // };
-
   const textik = (
-    <div>
-      Aplikácia umožňuje používateľovi vybrať nápoj z poskytnutého zoznamu a
-      určiť jeho obsah alkoholu a objem. V hornej časti obrazovky môže
-      používateľ vybrať typ nápoja (napr. víno, pivo, vodka, tequila atď.) a
-      následne sa zobrazí vybraný nápoj. Po výbere typu nápoja sa otvorí
-      rozbaľovacia ponuka so zoznamom rôznych typov nápojov. Používateľ si môže
-      vybrať požadovaný typ a potom zadať počet vypitých nápojov (v mililitroch)
-      alebo počet štandardných vypitých nápojov. Aplikácia umožňuje
-      používateľovi vybrať nápoj z poskytnutého zoznamu a určiť jeho obsah
-      alkoholu a objem. V hornej časti obrazovky môže používateľ vybrať typ
-      nápoja (napr. víno, pivo, vodka, tequila atď.) a následne sa zobrazí
-      vybraný nápoj. Po výbere typu nápoja sa otvorí rozbaľovacia ponuka so
-      zoznamom rôznych typov nápojov. Používateľ si môže vybrať požadovaný typ a
-      potom zadať počet vypitých nápojov (v mililitroch) alebo počet
-      štandardných vypitých nápojov.
+    <div style={{ textAlign: "justify" }}>
+      <p>Na tejto stránke sa zobrazujú nápoje pridané používateľom. </p>
+      <p>
+        Na pridanie nového nápoja kliknite na tlačidlo "Pridanie nápoja", čím sa
+        otvorí okno s formulárom na pridanie nového nápoja.{" "}
+      </p>
+      <p>
+        Vo formulári vyberte typ nápoja (napr. pivo, víno, vodka atď.), uveďte
+        jeho objem, obsah alkoholu a čas spotreby.{" "}
+      </p>
+      <p>
+        Po vyplnení formulára kliknite na -{" "}
+        <Button
+          size="small"
+          className="drinkcard__del-mui-icon newdrink__mobile-plus-button"
+          sx={{ borderRadius: 10 }}
+          variant="contained"
+          startIcon={<SaveIcon />}
+          style={{ background: "#7CA982" }}
+        >
+          Uložiť
+        </Button>{" "}
+        čím pridáte nový nápoj, alebo na -{" "}
+        <Button
+          size="small"
+          className="drinkcard__plus-icon newdrink__mobile-del-button"
+          sx={{ borderRadius: 10 }}
+          variant="contained"
+          startIcon={<BackspaceIcon />}
+          style={{ background: "#C6685D" }}
+        >
+          Zrušiť
+        </Button>{" "}
+        čím zatvoríte formulár bez pridania nového nápoja.{" "}
+      </p>
+      <p>
+        Ak chcete odstrániť niektorý z predtým pridaných nápojov, kliknite na
+        tlačidlo -{" "}
+        <BackspaceOutlinedIcon
+          style={{
+            color: "#C6685D",
+          }}
+        />{" "}
+        "Vymazať" vedľa príslušného nápoja.
+      </p>
+      <p>
+        {" "}
+        Alebo na tlačidlo -{" "}
+        <ContentCopyIcon
+          style={{
+            color: "#7CA982",
+          }}
+        />{" "}
+        "Kopírovať", aby ste ho zduplikovali.{" "}
+      </p>
+      <p>Po zapísaní požadovaných údajov stlačte tlačidlo Pokračovať</p>
     </div>
   );
 
@@ -186,6 +218,7 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
 
       {modal && (
         <Modal
+          customHeader=""
           customClass="bac__modal-content-custom"
           title="Pomôcka"
           content={textik}

@@ -139,6 +139,28 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
     },
   };
 
+  const bacText = (
+    <div style={{ textAlign: "justify" }}>
+      <p>
+        Opitosť alkoholom má výrazný vplyv na vašu schopnosť viesť vozidlo,
+        takže výpočet, ktorý tento faktor nezohľadňuje, nemôže byť presný.
+      </p>
+      <p>
+        Výsledky výpočtu môžu byť nedostatočné na posúdenie schopnosti a
+        oprávnenia viesť vozidlo, ak je prítomná opitosť.
+      </p>
+      <p>
+        Vodič musí vždy niesť zodpovednosť za svoje konanie a nesmie sa
+        spoliehať len na výsledky výpočtu, najmä ak je prítomná intoxikácia
+        alkoholom.
+      </p>
+      <p>
+        Právne predpisy stanovujú určité limity intoxikácie alkoholom, ktoré sa
+        nesmú prekročiť pri riadení vozidla.
+      </p>
+    </div>
+  );
+
   return (
     <div className="container bac__container">
       <div className="Logo bac__logo" onClick={goHome}>
@@ -244,10 +266,10 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
       </div>
       {modal && (
         <Modal
-          customClass=""
+          customHeader="bac__modal-content-customHeader"
+          customClass="bac__modal-content-custom"
           title="Pozor!"
-          content="Je to hypotéza, informácia ktorá by sa nemala používať na
-                rozhodnútie kedy sadnúť za volant!"
+          content={bacText}
           btnText="Chápem"
           setModal={setModal}
         />

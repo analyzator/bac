@@ -7,6 +7,7 @@ interface Props {
   btnText: string;
   title: any;
   customClass: any;
+  customHeader: any;
 }
 
 export const Modal: React.FC<Props> = ({
@@ -15,6 +16,7 @@ export const Modal: React.FC<Props> = ({
   title,
   btnText,
   customClass,
+  customHeader,
 }) => {
   return (
     <div>
@@ -24,7 +26,10 @@ export const Modal: React.FC<Props> = ({
           onClick={() => setModal(false)}
         ></div>
         <div className={`bac__modal-content ${customClass}`}>
-          <h2 className="bac__modal-content-title"> {title}</h2>
+          <h2 className={`bac__modal-content-title ${customHeader}`}>
+            {" "}
+            {title}
+          </h2>
           <h3 className="bac__modal-content-body">{content}</h3>
           <button
             className="bac__modal-content-btn"
