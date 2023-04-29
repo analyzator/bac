@@ -223,7 +223,6 @@ export const User: React.FC<UserProps> = ({ history }) => {
               }}
             >
               Zadajte svoj vek v rokoch
-              {/* <Button variant="contained">lol</Button> */}
             </h4>
             <input
               name="age"

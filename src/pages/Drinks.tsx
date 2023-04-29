@@ -98,7 +98,14 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
       následne sa zobrazí vybraný nápoj. Po výbere typu nápoja sa otvorí
       rozbaľovacia ponuka so zoznamom rôznych typov nápojov. Používateľ si môže
       vybrať požadovaný typ a potom zadať počet vypitých nápojov (v mililitroch)
-      alebo počet štandardných vypitých nápojov.
+      alebo počet štandardných vypitých nápojov. Aplikácia umožňuje
+      používateľovi vybrať nápoj z poskytnutého zoznamu a určiť jeho obsah
+      alkoholu a objem. V hornej časti obrazovky môže používateľ vybrať typ
+      nápoja (napr. víno, pivo, vodka, tequila atď.) a následne sa zobrazí
+      vybraný nápoj. Po výbere typu nápoja sa otvorí rozbaľovacia ponuka so
+      zoznamom rôznych typov nápojov. Používateľ si môže vybrať požadovaný typ a
+      potom zadať počet vypitých nápojov (v mililitroch) alebo počet
+      štandardných vypitých nápojov.
     </div>
   );
 
@@ -176,11 +183,13 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
           />{" "}
         </div>
       </div>
+
       {modal && (
         <Modal
+          customClass="bac__modal-content-custom"
           title="Pomôcka"
           content={textik}
-          btnText="Close"
+          btnText="Zavrieť"
           setModal={setModal}
         />
       )}

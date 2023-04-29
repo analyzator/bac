@@ -1734,8 +1734,11 @@ input[type="radio"]:checked + label:before {
   }
 }
 
-.bac__logo > h1 {
-  font-size: 2.8rem;
+@media only screen and (min-width: 680px) {
+  .bac__logo > h1 {
+    font-size: 2.8rem;
+    display: none;
+  }
 }
 
 .bac__edit-user-button,
@@ -1827,7 +1830,7 @@ input[type="radio"]:checked + label:before {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   border-radius: 0.6rem;
-  overflow: hidden;
+  overflow: hidden auto;
 }
 
 .bac__modal-content-title {
@@ -1931,7 +1934,7 @@ input[type="radio"]:checked + label:before {
     box-shadow: none;
     border-radius: 0.625rem;
     width: 80vw;
-    padding: 3rem 10vw 2rem;
+    padding: 3rem 10vw 0rem;
     justify-self: center;
   }
 
@@ -1984,6 +1987,14 @@ input[type="radio"]:checked + label:before {
     display: block;
   }
 
+  .chartjs-render-monitor {
+    width: 370px !important;
+    height: 200px !important;
+    position: sticky;
+    left: 50%;
+    margin-left: -40px;
+  }
+
   .bac__graph-container {
     margin-top: 1.5rem;
     margin-bottom: 2rem;
@@ -1991,9 +2002,15 @@ input[type="radio"]:checked + label:before {
   }
 
   .bac__modal-content {
-    top: 10%;
+    /* bottom: 10%; */
+    top: 25%;
     margin-left: -45vw;
     width: 90vw;
+  }
+
+  .bac__modal-content-custom {
+    bottom: 10%;
+    top: 10%;
   }
 
   .bac__modal-content-body {

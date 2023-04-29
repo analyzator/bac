@@ -45,7 +45,7 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
   let labels = [];
   for (let n in graphBacData) {
     labels.push((parseFloat(n) * 0.01).toFixed(2));
-    console.log("LOL", n);
+    // console.log("LOL", n);
   }
 
   const editDrinks = () => {
@@ -237,11 +237,14 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
             data={graphData as any}
             legend={{ display: false }}
             options={options as ChartOptions}
-          />
+          >
+            <canvas className="chartjs-render-monitor" />
+          </Line>
         </div>
       </div>
       {modal && (
         <Modal
+          customClass=""
           title="Pozor!"
           content="Je to hypotéza, informácia ktorá by sa nemala používať na
                 rozhodnútie kedy sadnúť za volant!"
