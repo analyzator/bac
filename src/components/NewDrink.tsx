@@ -152,9 +152,12 @@ export const NewDrink: React.FC<Props> = ({
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.timePassed}
-                  type="text"
-                  pattern="[0-9]*"
-                  inputMode="numeric"
+                  type="number"
+                  step="0.1"
+                  inputMode="decimal"
+                  // type="text"
+                  // pattern="[0-9]*"
+                  // inputMode="numeric"
                   className="newdrink__timePassed-input"
                 />
                 <h3>hod.</h3>

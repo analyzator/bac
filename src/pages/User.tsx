@@ -4,9 +4,9 @@ import { RouteComponentProps } from "react-router";
 import { useLocalStorage } from "../utils/useLocalState";
 import { userParamCalc } from "../utils/userParamCalc";
 import { userSchema } from "../validationSchemas/userSchema";
-// import { Button } from "@mui/material"
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "../Style.css";
-import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { Button, FormControlLabel, Radio, RadioGroup } from "@mui/material";
 
 interface UserProps extends RouteComponentProps {}
 
@@ -16,6 +16,10 @@ export const User: React.FC<UserProps> = ({ history }) => {
   // const goHome = () => {
   //   history.push("/");
   // };
+
+  const handleClickResetData = () => {
+    localStorage.clear();
+  };
 
   return (
     <Formik
@@ -27,7 +31,8 @@ export const User: React.FC<UserProps> = ({ history }) => {
         stomachState: userParams.stomachState || "",
         drinkingHabits: userParams.drinkingHabits || "",
       }}
-      onSubmit={(values) => {
+      onSubmit={(values, { resetForm }) => {
+        resetForm();
         const params = userParamCalc(
           values.weight,
           values.height,
@@ -59,12 +64,31 @@ export const User: React.FC<UserProps> = ({ history }) => {
         handleBlur,
         handleSubmit,
         setFieldValue,
+        // handleReset,
         isValid,
       }) => (
         <div className="userform__container container">
           {/* <div className="Logo userform__logo-web" onClick={goHome}>
             <h1>Alkoholový analyzátor</h1>
           </div> */}
+          {/* <div className="drinks__main-btns">
+            <Button
+              onClick={handleClickResetData}
+              sx={{ borderRadius: 10 }}
+              variant="contained"
+              startIcon={<DeleteForeverIcon fontSize="medium" />}
+              style={{
+                backgroundColor: "#C2A83E",
+                borderColor: "#C2A83E",
+                borderWidth: "2px",
+                fontWeight: "bold",
+                textTransform: "none",
+              }}
+            >
+              Vymazať dáta
+            </Button>
+          </div> */}
+
           <form className="userform__form-container">
             {/* <div
               className="Logo userform__logo-mobile"
@@ -131,48 +155,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
                   }}
                 />
               </RadioGroup>
-              {/* <input
-                type="radio"
-                name="sex"
-                value="male"
-                id="male"
-                checked={values.sex === "male"}
-                onChange={() => setFieldValue("sex", "male")}
-                style={{ display: "none" }}
-              />
-              <label
-                className="userform__radio-label"
-                htmlFor="male"
-                style={{
-                  border:
-                    values.sex === "male"
-                      ? "1px solid #7CA982"
-                      : "1px solid #B1B4B6",
-                }}
-              >
-                Muž
-              </label>
-              <input
-                type="radio"
-                name="sex"
-                value="female"
-                id="female"
-                checked={values.sex === "female"}
-                onChange={() => setFieldValue("sex", "female")}
-                style={{ display: "none" }}
-              />
-              <label
-                className="userform__radio-label"
-                htmlFor="female"
-                style={{
-                  border:
-                    values.sex === "female"
-                      ? "0.5px solid #7CA982"
-                      : "0.5px solid #B1B4B6",
-                }}
-              >
-                Žena
-              </label> */}
+              {/* <Button onClick={handleReset}>buh</Button> */}
             </div>
             <hr className="userform__line userform__line1" />
             <h4
@@ -289,6 +272,13 @@ export const User: React.FC<UserProps> = ({ history }) => {
               <option value="rarely">Menej ako raz týždenne</option>
             </select>
             <hr className="userform__line userform__line3" />
+
+            <button
+              className="full-element userform__button-del userform__g13"
+              onClick={handleClickResetData}
+            >
+              Vymazať všetko
+            </button>
             <button
               onClick={() => handleSubmit()}
               type="submit"

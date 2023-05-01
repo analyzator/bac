@@ -15,6 +15,7 @@ import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import SaveIcon from "@mui/icons-material/Save";
 import BackspaceIcon from "@mui/icons-material/Backspace";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 interface DrinksProps extends RouteComponentProps<{ id: string }> {}
 
@@ -79,6 +80,10 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
 
   const handleOpenModal = () => {
     setModal(true);
+  };
+
+  const handleDeleteAll = () => {
+    setDrinks([]); // установите новый пустой список напитков
   };
 
   const textik = (
@@ -168,7 +173,8 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
                   Upraviť používateľa
                 </Button>
               </Grid>
-              <Grid item xs={6}>
+
+              <Grid item xs={2}>
                 <IconButton onClick={handleOpenModal}>
                   <HelpOutlineIcon fontSize="large" />
                 </IconButton>
@@ -181,7 +187,28 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
           >
             Zmena používateľa
           </div> */}
-
+          <div
+            style={{
+              marginBottom: "2rem",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Button
+              onClick={handleDeleteAll}
+              variant="outlined"
+              startIcon={<DeleteForeverIcon />}
+              style={{
+                color: "#C6685D",
+                marginRight: "10px",
+                borderColor: "#C6685D",
+                borderWidth: "2px",
+                fontWeight: "bold",
+              }}
+            >
+              Vymazať nápoje
+            </Button>
+          </div>
           <div style={{ display: "flex" }}>
             <button
               onClick={() => setAddingNewDrink(true)}
