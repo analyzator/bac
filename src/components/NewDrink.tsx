@@ -181,6 +181,7 @@ export const NewDrink: React.FC<Props> = ({
                 </div>
                 <div className="input-only-mob">
                   <select
+                    style={{ width: "5rem" }}
                     name="timePassed"
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -191,12 +192,95 @@ export const NewDrink: React.FC<Props> = ({
                       const time = i / 2;
                       return (
                         <option key={time} value={time}>
-                          {time.toFixed(1)} hod.
+                          {time.toFixed(1)}
                         </option>
                       );
                     })}
                   </select>
                 </div>
+                <div className="input-only-mob">
+                  {/* <select
+                    style={{
+                      display: "inline-block",
+                      width: "3rem",
+                      marginRight: "1rem",
+                    }}
+                    name="hoursPassed"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={Math.floor(values.timePassed)}
+                    className="newdrink__timePassed-input"
+                  >
+                    {[...Array(24)].map((_, i) => (
+                      <option key={i + 1} value={i + 1}>
+                        {i + 1}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    style={{ display: "inline-block", width: "2rem" }}
+                    name="minutesPassed"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.timePassed % 1 ? "0.5" : "0"}
+                    className="newdrink__timePassed-input"
+                  >
+                    <option value="0">0</option>
+                    <option value="0.5">0.5</option>
+                  </select> */}
+                  {/* <select
+                    style={{ width: "5rem" }}
+                    name="timePassed"
+                    onChange={(e) => {
+                      const value = parseFloat(e.target.value);
+                      handleChange(value);
+                    }}
+                    onBlur={handleBlur}
+                    value={values.timePassed}
+                    className="newdrink__timePassed-input"
+                  >
+                    {[...Array(48)].map((_, i) => {
+                      const time = i / 2;
+                      return (
+                        <option key={time} value={time.toFixed(1)}>
+                          {`${Math.floor(time)}:${
+                            time % 1 === 0.5 ? "30" : "00"
+                          }`}
+                        </option>
+                      );
+                    })}
+                  </select> */}
+                  {/* <select
+                    style={{ width: "5rem" }}
+                    name="timePassed"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.timePassed}
+                    className="newdrink__timePassed-input"
+                  >
+                    <option value="0.5">00:30</option>
+                    <option value="1">1:00</option>
+                    <option value="1.5">01:30</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2:15</option>
+                    <option value="2.5">2:30</option>
+                    <option value="3">3</option>
+                  </select> */}
+                  {/* <select>
+                    <optgroup label="Hours">
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="23">23</option>
+                    </optgroup>
+                    <optgroup label="Minutes">
+                      <option value="15">15</option>
+                      <option value="30">30</option>
+                      <option value="45">45</option>
+                    </optgroup>
+                  </select> */}
+                </div>
+
                 <h3>hod.</h3>
               </div>
             </div>

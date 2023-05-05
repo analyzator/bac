@@ -55,12 +55,17 @@
   align-self: center;
 }
 
+@media (min-width: 1000px) {
+  .centered-home {
+    justify-content: center;
+  }
+}
+
 .home__container {
   display: flex;
   top: 0;
   left: 0;
   flex-direction: column;
-  /* justify-content: center; */
   text-align: center;
   height: 100vh;
   width: 100vw;
