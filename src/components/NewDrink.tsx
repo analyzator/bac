@@ -146,37 +146,57 @@ export const NewDrink: React.FC<Props> = ({
                 Dávno?{" "}
               </h4>
               <div className="newdrink__parameter-subcontainer">
-                <input
-                  name="timePassed"
-                  placeholder=""
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.timePassed}
-                  type="number"
-                  step="0.5"
-                  min="0.5"
-                  // onKeyDown={(e) => {
-                  //   if (e.key === "-") {
-                  //     e.preventDefault();
-                  //   }
-                  // }}
-                  onKeyDown={(e) => {
-                    if (e.key === "-") {
-                      e.preventDefault();
-                    }
-                    if (e.key === ".") {
-                      e.preventDefault();
-                    }
-                    if (e.key === ",") {
-                      e.preventDefault();
-                    }
-                  }}
-                  inputMode="decimal"
-                  // type="text"
-                  pattern="[0-9]*"
-                  // inputMode="numeric"
-                  className="newdrink__timePassed-input"
-                />
+                <div className="input-only-pc">
+                  <input
+                    name="timePassed"
+                    placeholder=""
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.timePassed}
+                    type="number"
+                    step="0.5"
+                    min="0.5"
+                    // onKeyDown={(e) => {
+                    //   if (e.key === "-") {
+                    //     e.preventDefault();
+                    //   }
+                    // }}
+                    onKeyDown={(e) => {
+                      if (e.key === "-") {
+                        e.preventDefault();
+                      }
+                      if (e.key === ".") {
+                        e.preventDefault();
+                      }
+                      if (e.key === ",") {
+                        e.preventDefault();
+                      }
+                    }}
+                    inputMode="decimal"
+                    // type="text"
+                    pattern="[0-9]*"
+                    // inputMode="numeric"
+                    className="newdrink__timePassed-input"
+                  />
+                </div>
+                <div className="input-only-mob">
+                  <select
+                    name="timePassed"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.timePassed}
+                    className="newdrink__timePassed-input"
+                  >
+                    {[...Array(48)].map((_, i) => {
+                      const time = i / 2;
+                      return (
+                        <option key={time} value={time}>
+                          {time.toFixed(1)} hod.
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
                 <h3>hod.</h3>
               </div>
             </div>

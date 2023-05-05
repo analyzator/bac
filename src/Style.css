@@ -60,7 +60,7 @@
   top: 0;
   left: 0;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   text-align: center;
   height: 100vh;
   width: 100vw;
@@ -1480,6 +1480,18 @@ input[type="radio"]:checked + label:before {
   }
 }
 
+@media (max-width: 1000px) {
+  .input-only-pc {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  .input-only-mob {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 1025px) {
   .drinkcard__container {
     width: 53vw;
@@ -1520,6 +1532,7 @@ input[type="radio"]:checked + label:before {
     /* height: calc(100vh - 10vh - 0.275rem); */
     /* height: -webkit-fill-available; */
     height: auto;
+    min-height: 50rem;
     padding: 3rem 7.5vw 2rem;
     border-radius: 0;
     background-color: var(--background-color);
