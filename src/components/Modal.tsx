@@ -4,7 +4,7 @@ interface Props {
   setModal: React.Dispatch<React.SetStateAction<any>>;
   // content: ReactNode;
   content: any;
-  btnText: string;
+  btnText: any;
   title: any;
   customClass: any;
   customHeader: any;

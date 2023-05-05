@@ -224,6 +224,24 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
         </Button>
       </div>
 
+      <div className="home-btn-bac">
+        <Button
+          onClick={goHome}
+          startIcon={<HomeIcon />}
+          sx={{ borderRadius: 5 }}
+          variant="outlined"
+          style={{
+            marginBottom: "4rem",
+            color: "#7CA982",
+            borderColor: "#7CA982",
+            borderWidth: "2px",
+            fontWeight: "bold",
+          }}
+        >
+          Domovská stránka
+        </Button>
+      </div>
+
       <div className="bac__info-container">
         <div className="bac__main-text">
           <h2>
@@ -270,7 +288,7 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
           customClass="bac__modal-content-custom"
           title="Pozor!"
           content={bacText}
-          btnText="Chápem"
+          btnText="Rozumiem"
           setModal={setModal}
         />
       )}

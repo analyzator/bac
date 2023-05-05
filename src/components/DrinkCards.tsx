@@ -41,7 +41,7 @@ export const DrinkCards: React.FC<DrinkCardsProps> = ({
           <h4>Koľko hodín dozadu?</h4>
           <h3>
             <b>{drink.timePassed}</b>{" "}
-            {drink.timePassed === "1" ? "Hodina" : "Hodin"}
+            {drink.timePassed === "1" ? "hod." : "hod."}
             {window.screen.width < 680 ? " " : null}
           </h3>
         </div>

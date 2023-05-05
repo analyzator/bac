@@ -153,16 +153,27 @@ export const NewDrink: React.FC<Props> = ({
                   onBlur={handleBlur}
                   value={values.timePassed}
                   type="number"
-                  // step="0.1"
-                  min="0"
+                  step="0.5"
+                  min="0.5"
+                  // onKeyDown={(e) => {
+                  //   if (e.key === "-") {
+                  //     e.preventDefault();
+                  //   }
+                  // }}
                   onKeyDown={(e) => {
                     if (e.key === "-") {
+                      e.preventDefault();
+                    }
+                    if (e.key === ".") {
+                      e.preventDefault();
+                    }
+                    if (e.key === ",") {
                       e.preventDefault();
                     }
                   }}
                   inputMode="decimal"
                   // type="text"
-                  // pattern="[0-9]*"
+                  pattern="[0-9]*"
                   // inputMode="numeric"
                   className="newdrink__timePassed-input"
                 />

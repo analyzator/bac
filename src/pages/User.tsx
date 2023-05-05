@@ -4,9 +4,8 @@ import { RouteComponentProps } from "react-router";
 import { useLocalStorage } from "../utils/useLocalState";
 import { userParamCalc } from "../utils/userParamCalc";
 import { userSchema } from "../validationSchemas/userSchema";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "../Style.css";
-import { Button, FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 
 interface UserProps extends RouteComponentProps {}
 
@@ -17,8 +16,12 @@ export const User: React.FC<UserProps> = ({ history }) => {
   //   history.push("/");
   // };
 
+  // const handleClickResetData = () => {
+  //   localStorage.clear();
+  // };
+
   const handleClickResetData = () => {
-    localStorage.clear();
+    setUserParams([]);
   };
 
   return (
@@ -68,38 +71,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
         isValid,
       }) => (
         <div className="userform__container container">
-          {/* <div className="Logo userform__logo-web" onClick={goHome}>
-            <h1>Alkoholový analyzátor</h1>
-          </div> */}
-          {/* <div className="drinks__main-btns">
-            <Button
-              onClick={handleClickResetData}
-              sx={{ borderRadius: 10 }}
-              variant="contained"
-              startIcon={<DeleteForeverIcon fontSize="medium" />}
-              style={{
-                backgroundColor: "#C2A83E",
-                borderColor: "#C2A83E",
-                borderWidth: "2px",
-                fontWeight: "bold",
-                textTransform: "none",
-              }}
-            >
-              Vymazať dáta
-            </Button>
-          </div> */}
-
           <form className="userform__form-container">
-            {/* <div
-              className="Logo userform__logo-mobile"
-              onClick={goHome}
-              style={{ textAlign: "center" }}
-            >
-              <h1>Alkoholový analyzátor</h1>
-            </div> */}
-            {/* <div className="userform__title-container userform__g1">
-              <h2>Zadajte svoje fyzické charakteristiky</h2>
-            </div> */}
             <p
               style={{
                 fontSize: "x-large",
@@ -155,7 +127,6 @@ export const User: React.FC<UserProps> = ({ history }) => {
                   }}
                 />
               </RadioGroup>
-              {/* <Button onClick={handleReset}>buh</Button> */}
             </div>
             <hr className="userform__line userform__line1" />
             <h4
@@ -166,7 +137,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
             >
               Zadajte svoju hmotnosť v kilogramoch
             </h4>
-
+            {/* <div onClick={goHome}>DOMOV</div> */}
             <input
               name="weight"
               placeholder=" (kg)"
@@ -277,7 +248,7 @@ export const User: React.FC<UserProps> = ({ history }) => {
               className="full-element userform__button-del userform__g13"
               onClick={handleClickResetData}
             >
-              Vymazať všetko
+              Vymazať údaje
             </button>
             <button
               onClick={() => handleSubmit()}

@@ -7,7 +7,7 @@ import { NewDrink } from "../components/NewDrink";
 import { graphDataCalculator } from "../utils/graphDataCalculator";
 import { drinkSorter } from "../utils/drinkSorter";
 import { userParameters } from "../utils/userParameters";
-import { Button, IconButton, Grid } from "@mui/material";
+import { Button, IconButton, Grid, Tooltip } from "@mui/material";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { Modal } from "../components/Modal";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
@@ -156,28 +156,49 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
         <div className="drinks__main-btns" style={{ display: "grid" }}>
           <div className="drinks__USER-BTN">
             <Grid className="drinks__USER-BTN-SPACE">
-              <Grid item xs={6}>
-                <Button
-                  onClick={() => history.push("/user")}
-                  sx={{ borderRadius: 10 }}
-                  variant="outlined"
-                  startIcon={<ManageAccountsIcon />}
-                  style={{
-                    color: "#7CA982",
-                    marginRight: "10px",
-                    borderColor: "#7CA982",
-                    borderWidth: "2px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Upraviť používateľa
-                </Button>
+              <Grid item xs={4}>
+                <Tooltip title="Presmerovanie na stránku používateľa">
+                  <Button
+                    onClick={() => history.push("/user")}
+                    sx={{ borderRadius: 10 }}
+                    variant="outlined"
+                    startIcon={<ManageAccountsIcon />}
+                    style={{
+                      color: "#7CA982",
+                      marginRight: "10px",
+                      borderColor: "#7CA982",
+                      borderWidth: "2px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Upraviť používateľa
+                  </Button>
+                </Tooltip>
               </Grid>
-
-              <Grid item xs={2}>
-                <IconButton onClick={handleOpenModal}>
-                  <HelpOutlineIcon fontSize="large" />
-                </IconButton>
+              <Grid item xs={3} className="vymazat-drinks-none">
+                <Tooltip title="Odstránenie zoznamu nápojov">
+                  <Button
+                    onClick={handleDeleteAll}
+                    variant="outlined"
+                    startIcon={<DeleteForeverIcon />}
+                    style={{
+                      color: "#C6685D",
+                      marginRight: "10px",
+                      borderColor: "#C6685D",
+                      borderWidth: "2px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Vymazať nápoje
+                  </Button>
+                </Tooltip>
+              </Grid>
+              <Grid item xs={1}>
+                <Tooltip title="Pomôcka">
+                  <IconButton onClick={handleOpenModal}>
+                    <HelpOutlineIcon fontSize="large" />
+                  </IconButton>
+                </Tooltip>
               </Grid>
             </Grid>
           </div>
@@ -187,13 +208,7 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
           >
             Zmena používateľa
           </div> */}
-          <div
-            style={{
-              marginBottom: "2rem",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+          <div className="vymazat-drinks-mob vymazat-drinks-pc">
             <Button
               onClick={handleDeleteAll}
               variant="outlined"
