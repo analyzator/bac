@@ -189,7 +189,7 @@ export const NewDrink: React.FC<Props> = ({
                     className="newdrink__timePassed-input"
                   >
                     {[...Array(48)].map((_, i) => {
-                      const time = i / 2;
+                      const time = (i + 1) / 2;
                       return (
                         <option key={time} value={time}>
                           {time.toFixed(1)}
