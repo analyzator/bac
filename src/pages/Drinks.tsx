@@ -146,6 +146,20 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
     </div>
   );
 
+  const btnsFooter = (
+    <div
+      style={{
+        padding: "1rem",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <button className="home-new-user-button" onClick={() => setModal(false)}>
+        Zavrieť
+      </button>
+    </div>
+  );
+
   return (
     <>
       <div className="container drinks__container">
@@ -264,7 +278,7 @@ export const Drinks: React.FC<DrinksProps> = ({ match, history }) => {
           customClass="bac__modal-content-custom"
           title="Pomôcka"
           content={textik}
-          btnText="Zavrieť"
+          footerContent={btnsFooter}
           setModal={setModal}
         />
       )}

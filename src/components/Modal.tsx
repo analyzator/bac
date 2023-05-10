@@ -2,9 +2,8 @@ import React from "react";
 
 interface Props {
   setModal: React.Dispatch<React.SetStateAction<any>>;
-  // content: ReactNode;
   content: any;
-  btnText: any;
+  footerContent: any;
   title: any;
   customClass: any;
   customHeader: any;
@@ -14,7 +13,7 @@ export const Modal: React.FC<Props> = ({
   setModal,
   content,
   title,
-  btnText,
+  footerContent,
   customClass,
   customHeader,
 }) => {
@@ -31,12 +30,11 @@ export const Modal: React.FC<Props> = ({
             {title}
           </h2>
           <h3 className="bac__modal-content-body">{content}</h3>
-          <button
-            className="bac__modal-content-btn"
+          {/* <button
+            // className="bac__modal-content-btn"
             onClick={() => setModal(false)}
-          >
-            {btnText}
-          </button>
+          > */}
+          <div> {footerContent}</div>
         </div>
       </div>
     </div>

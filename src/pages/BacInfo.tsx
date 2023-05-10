@@ -161,6 +161,20 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
     </div>
   );
 
+  const btnsFooter = (
+    <div
+      style={{
+        padding: "1rem",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <button className="home-new-user-button" onClick={() => setModal(false)}>
+        Rozumiem
+      </button>
+    </div>
+  );
+
   return (
     <div className="container bac__container">
       <div className="Logo bac__logo" onClick={goHome}>
@@ -288,7 +302,7 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
           customClass="bac__modal-content-custom"
           title="Pozor!"
           content={bacText}
-          btnText="Rozumiem"
+          footerContent={btnsFooter}
           setModal={setModal}
         />
       )}

@@ -31,15 +31,27 @@ const Home: React.FC<Props> = ({ history }) => {
   };
 
   const sure = (
-    <div style={{ textAlign: "center" }}>
-      <div style={{ marginTop: "3rem" }}>
-        <button className="home-new-user-button" onClick={handleClickResetData}>
-          Nový používateľ
-        </button>
-      </div>
-      <b>
-        Pri výbere nového používateľa budú všetky predchádzajúce údaje vymazané.
-      </b>
+    <div style={{ paddingTop: "1rem" }}>
+      Pri výbere nového používateľa budú všetky predchádzajúce údaje vymazané.
+    </div>
+  );
+
+  const btnsFooter = (
+    <div
+      style={{
+        padding: "1rem",
+      }}
+    >
+      <button
+        className="home-new-user-button"
+        style={{ color: "#C2A83E", borderColor: "#C2A83E" }}
+        onClick={() => setModal(false)}
+      >
+        Späť
+      </button>{" "}
+      <button className="home-new-user-button" onClick={handleClickResetData}>
+        Nový používateľ
+      </button>
     </div>
   );
 
@@ -79,7 +91,7 @@ const Home: React.FC<Props> = ({ history }) => {
           customClass="bac__modal-content-custom"
           title="Pozor!"
           content={sure}
-          btnText="Späť"
+          footerContent={btnsFooter}
           setModal={setModal}
         />
       )}
