@@ -37,9 +37,9 @@ const Home: React.FC<Props> = ({ history }) => {
           Nový používateľ
         </button>
       </div>
-      <p>
+      <b>
         Pri výbere nového používateľa budú všetky predchádzajúce údaje vymazané.
-      </p>
+      </b>
     </div>
   );
 
