@@ -286,7 +286,7 @@ export const BacInfo: React.FC<Props> = ({ location, history, match }) => {
             môžete sadnúť za volant!
           </h5>
         </div>
-        <div className="bac__graph-container">
+        <div className="bac__graph-container home-logo-watch">
           <Line
             data={graphData as any}
             legend={{ display: false }}

@@ -2165,3 +2165,14 @@ input[type="radio"]:checked + label:before {
   }
 }
 /* ------- bac info -------*/
+
+/*=========Watch==================*/
+
+@media (max-height: 400px) {
+  .home-logo-watch {
+    display: none;
+  }
+  .home-center-watch {
+    justify-content: center;
+  }
+}

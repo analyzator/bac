@@ -58,11 +58,11 @@ const Home: React.FC<Props> = ({ history }) => {
   // const SureButton = <div onClick={handleClickResetData}>Nový používateľ</div>;
 
   return (
-    <div className="container home__container centered-home">
-      <div className="Logo home__logo">
+    <div className="container home__container centered-home home-center-watch">
+      <div className="Logo home__logo home-logo-watch">
         <h1>Alkoholový analyzátor</h1>
       </div>
-      <h2>Zistite hladinu alkoholu v krvi</h2>
+      <h2 className="home-logo-watch">Zistite hladinu alkoholu v krvi</h2>
       {/* <button onClick={clickHandler} className="home__button">
         Start
       </button> */}
